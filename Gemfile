@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.3.1'
+gem 'figaro'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'

@@ -1,16 +1,27 @@
 <div class="container">
   <div class="text-center">
     <h1>The World Best Cocktails !</h1>
-    <% @cocktails.each do |cocktail| %>
-      <div>
-        <%= link_to cocktail.name.capitalize, cocktail %>
-        <%= link_to edit_cocktail_path(cocktail) do %>
-          <i class="fa fa-pencil" ></i>
-        <% end %>
-        <%= link_to cocktail_path(cocktail), method: :delete, data: { confirm: 'Are you sure ?'} do %>
-          <i class="fa fa-trash-o" ></i>
-        <% end %>
-      </div>
-    <% end %>
+
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+          <div class="col-xs-12 col-sm-4">
+            <!-- insert <div class="card"> -->
+            <div class="enlarged-card">
+              <div class="card" style='background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= image_path("logo.png") %>);'>
+                <div class="card-description">
+                  <h2><%= link_to cocktail.name.capitalize, cocktail %></h2>
+                </div>
+              </div>
+              <%= link_to edit_cocktail_path(cocktail) do %>
+                <i class="fa fa-pencil" ></i>
+              <% end %>
+              <%= link_to cocktail_path(cocktail), method: :delete, data: { confirm: 'Are you sure ?'} do %>
+                <i class="fa fa-trash-o" ></i>
+              <% end %>
+            </div>
+        </div>
+      <% end %>
+    </div>
+
   </div>
 </div>
