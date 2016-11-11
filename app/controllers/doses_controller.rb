@@ -19,20 +19,6 @@ class DosesController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-    @ingredient = Ingredient.find(params[:dose][:ingredient]) unless params[:dose][:ingredient].empty?
-
-    @dose = Dose.new(dose_params)
-    @dose.cocktail = @cocktail
-
-    @dose.ingredient = @ingredient
-    @dose.update(cocktail_params)
-    redirect_to cocktail_path(@cocktail)
-  end
-
   def destroy
     @dose = Dose.find(params[:id])
     @dose.destroy
