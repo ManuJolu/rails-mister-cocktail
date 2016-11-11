@@ -48,4 +48,19 @@
     <% end %>
   </div>
 
+  <div class="reviews">
+    <%= render 'reviews/form' %>
+  </div>
+
+  <div>
+    <% @cocktail.reviews.each do |review| %>
+      <ul class="list-unstyled">
+        <li>
+          <%= review.content %>
+          <%= review.stars %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+
 </div>
