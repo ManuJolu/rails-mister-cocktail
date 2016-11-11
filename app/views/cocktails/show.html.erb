@@ -1,5 +1,11 @@
 <div class="container">
   <h1><%= @cocktail.name.capitalize %></h1>
+    <div class="picture">
+      <% if @cocktail.photo? %>
+        <%= cl_image_tag @cocktail.photo.path, width: 300, height: 200, crop: :fill %>
+      <% end %>
+    </div>
+
 
   <div class="ingredient">
     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">

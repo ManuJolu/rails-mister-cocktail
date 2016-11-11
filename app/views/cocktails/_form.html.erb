@@ -1,5 +1,6 @@
 <%= simple_form_for (@cocktail) do |f| %>
   <%= f.error_notification %>
   <%= f.input :name, placeholder: "Bloody Mary", error: "Add a name"  %>
+  <%= f.input :photo, as: :attachinary %>
   <%= f.button :submit %>
 <% end %>
