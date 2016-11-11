@@ -1,13 +1,27 @@
 <div class="container">
-  <h1><%= @cocktail.name.capitalize %></h1>
-    <div class="picture">
-      <% if @cocktail.photo? %>
-        <%= cl_image_tag @cocktail.photo.path, width: 300, height: 200, crop: :fill %>
-      <% end %>
+  <div class="cocktail-name">
+    <div class="row">
+      <div class="test">
+        <div class="col-xs-6 col-md-4">
+          <h1><%= @cocktail.name.capitalize %></h1>
+        </div>
+        <div class="col-xs-6 col-md-1">
+          <%= link_to edit_cocktail_path(@cocktail) do %>
+            <i class="fa fa-pencil" ></i>
+          <% end %>
+          <%= link_to cocktail_path(@cocktail), method: :delete, data: { confirm: 'Are you sure ?'} do %>
+            <i class="fa fa-trash-o" ></i>
+          <% end %>
+        </div>
+      </div>
     </div>
+  </div>
 
+  <% if @cocktail.photo? %>
+    <%= cl_image_tag @cocktail.photo.path, width: 300, height: 200, crop: :fill, class: "picture" %>
+  <% end %>
 
-  <div class="ingredient">
+  <div class="add-ingredient">
     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       Add Ingredient
     </button>
